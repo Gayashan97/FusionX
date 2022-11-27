@@ -1,0 +1,9 @@
+pandas
+joblib
+# keras
+# Pipeline slack notify test
+# google-cloud-storage
+sqlalchemy
+PyMySQL
+# xgboost
+scikit-learn

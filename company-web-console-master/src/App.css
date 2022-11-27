@@ -1,0 +1,121 @@
+@import '~antd/dist/antd.css';
+
+.App {
+  text-align: center;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+#components-layout-demo-top-side .logo {
+  float: left;
+  width: 120px;
+  height: 31px;
+  margin: 16px 24px 16px 0;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl #components-layout-demo-top-side .logo {
+  float: right;
+  margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+  background: #fff;
+}
+.container-wrapper {
+  border-style: double;
+  border-width: 30px;
+  width: 800px;
+}
+.image-wrapper {
+  border-radius: 150px;
+  margin-bottom: 10px;
+}
+.label-wrapper {
+  margin-bottom: -30px;
+}
+.input-wrapper {
+  margin-left: 105px;
+}
+.button-wrapper {
+  width: 90px;
+  margin-left: 60px;
+}
+.select-wrapper {
+  width: 385px;
+  margin-left: 105px; 
+}
+.model-wrapper {
+ margin-left:-140px;
+}
+.model-select-wrapper {
+  width: 280px;
+  margin-left: 105px;
+}
+.fixed-width {
+  min-height: 100vh;
+}
+.btn-wrapper {
+  margin-left: 890px;
+  margin-bottom: 15px;
+}
+.demurrage {
+  border-style: double;
+  border-width: 10px;
+  width: 500px;
+  margin-left: 200px;
+  margin-top: 80px;
+}
+.log-out-btn-wrapper {
+  bottom: 60px;
+  position: fixed;
+  width: 200px;
+}
+.log-out-btn-wrapper.lg-out {
+  border-radius: 5px;
+  color:black;
+  font-weight: 800;
+  height: 40px;
+  margin: 0px 14px;
+  
+}
+.btn-yellow {
+  background-color: rgb(179, 179, 171);
+  border: 1px solid rgb(10, 10, 10);
+  border-radius: 23px;
+  color: black;
+  cursor: pointer;
+  outline: 0;
+  width: 170px;
+}
+.contact-wrapper{
+  margin-left:-5px;
+  margin-top: 110px;
+}
+.site-card-wrapper{
+  margin-top: 110px;
+  margin-left: 40px;
+  width: 137%;
+}
+/* .ant-layout-content{
+  background-image:url("assets/image.jpg");
+} */

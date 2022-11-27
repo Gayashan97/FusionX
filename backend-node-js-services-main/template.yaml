@@ -1,0 +1,449 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Outputs the time
+Resources:
+  SampleFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handler
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        MySampleAPI:
+          Type: Api
+          Properties:
+            Path: /Sample
+            Method: GET
+  SampleFunctionTwo:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: index.handlertwo
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        MySampleAPITwo:
+          Type: Api
+          Properties:
+            Path: /SampleTwo
+            Method: GET
+  GetAllEmployees:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: employeeService.listAllEmployees
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllEmployees:
+          Type: Api
+          Properties:
+            Path: /GetAllEmployees
+            Method: GET
+  GetEmployeeById:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: employeeService.getEmployeeById
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetEmployeeById:
+          Type: Api
+          Properties:
+            Path: /GetEmployeeById/{id}
+            Method: GET
+  GetAllActivities:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityService.getAllActivities
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllActivities:
+          Type: Api
+          Properties:
+            Path: /GetAllActivities
+            Method: GET
+  GetActivityById:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityService.getActivityById
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetActivityById:
+          Type: Api
+          Properties:
+            Path: /GetActivityById/{id}
+            Method: GET
+  GetAllWareHouseItems:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: wareHouseItemsService.getAllWareHouseItems
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllWareHouseItems:
+          Type: Api
+          Properties:
+            Path: /GetAllWareHouseItems
+            Method: GET
+  GetWareHouseItemsById:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: wareHouseItemsService.getWareHouseItemsById
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetWareHouseItemsById:
+          Type: Api
+          Properties:
+            Path: /GetWareHouseItemsById/{id}
+            Method: GET
+  CommonLogin:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: loginService.login
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        CommonLogIn:
+          Type: Api
+          Properties:
+            Path: /LogIn
+            Method: POST
+  SaveEmployee:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: employeeService.saveEmployee
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        SaveEmployee:
+          Type: Api
+          Properties:
+            Path: /SaveEmployee
+            Method: POST
+  UpdateEmployee:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: employeeService.updateEmployee
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        UpdateEmployee:
+          Type: Api
+          Properties:
+            Path: /UpdateEmployee/{id}
+            Method: PUT
+  SaveWareHouseItems:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: wareHouseItemsService.saveWareHouseItems
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        SaveWareHouseItems:
+          Type: Api
+          Properties:
+            Path: /SaveWareHouseItems
+            Method: POST
+  UpdateWareHouseItems:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: wareHouseItemsService.updateWareHouseItems
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        UpdateWareHouseItems:
+          Type: Api
+          Properties:
+            Path: /UpdateWareHouseItems/{id}
+            Method: PUT
+  SaveActivity:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityService.saveActivity
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        SaveActivity:
+          Type: Api
+          Properties:
+            Path: /SaveActivity
+            Method: POST
+  UpdateActivity:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityService.updateActivity
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        UpdateActivity:
+          Type: Api
+          Properties:
+            Path: /UpdateActivity/{1}
+            Method: PUT
+  GetAllActivityLogs:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityLogService.getAllActivityLogs
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllActivityLogs:
+          Type: Api
+          Properties:
+            Path: /GetAllActivityLogs
+            Method: GET
+  GetActivityLogsById:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityLogService.getActivityLogsById
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetActivityLogsById:
+          Type: Api
+          Properties:
+            Path: /GetActivityLogsById/{id}
+            Method: GET
+  SaveActivityLog:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityLogService.saveActivityLog
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        SaveActivityLog:
+          Type: Api
+          Properties:
+            Path: /SaveActivityLog
+            Method: POST
+  UpdateActivityLog:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityLogService.updateActivityLog
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        UpdateActivityLog:
+          Type: Api
+          Properties:
+            Path: /UpdateActivityLog/{id}
+            Method: PUT
+  VerificationCodeForResetPassword:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: resetPasswordService.verificationCodeForResetPassword
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        VerificationCodeForResetPassword:
+          Type: Api
+          Properties:
+            Path: /VerificationCodeForResetPassword
+            Method: PUT
+  ResetPasswordConfirm:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: resetPasswordService.confirmResetPassword
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        ResetPasswordConfirm:
+          Type: Api
+          Properties:
+            Path: /ConfirmResetPassword
+            Method: PUT
+  GetAllActivityLogTypes:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityLogTypeService.getAllActivityLogTypes
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllActivityLogTypes:
+          Type: Api
+          Properties:
+            Path: /GetAllActivityLogTypes
+            Method: GET
+  GetAllWareHouseCategories:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: wareHouseCategoryService.getAllWareHouseCategories
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllWareHouseCategories:
+          Type: Api
+          Properties:
+            Path: /GetAllWareHouseCategories
+            Method: GET
+  GetWareHouseItemsByCategoryId:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: wareHouseItemsService.getWareHouseItemsByCategoryId
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetWareHouseItemsByCategoryId:
+          Type: Api
+          Properties:
+            Path: /GetWareHouseItemsByCategoryId/{catId}
+            Method: GET
+  GetActivitiesByThirdPartyId:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityService.getActivitiesByThirdPartyId
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetActivitiesByThirdPartyId:
+          Type: Api
+          Properties:
+            Path: /GetActivitiesByThirdPartyId/{thirdPartyId}
+            Method: GET
+  GetAllThirdPartyUsers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: thirdPartyUserService.listAllThirdPartyUsers
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllThirdPartyUsers:
+          Type: Api
+          Properties:
+            Path: /GetAllThirdPartyUsers
+            Method: GET
+  GetThirdPartyUserById:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: thirdPartyUserService.getThirdPartyUserById
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetThirdPartyUserById:
+          Type: Api
+          Properties:
+            Path: /GetThirdPartyUserById/{id}
+            Method: GET
+  SaveThirdPartyUser:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: thirdPartyUserService.saveThirdPartyUser
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        SaveThirdPartyUser:
+          Type: Api
+          Properties:
+            Path: /SaveThirdPartyUser
+            Method: POST
+  UpdateThirdPartyUser:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: thirdPartyUserService.updateThirdPartyUser
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        UpdateThirdPartyUser:
+          Type: Api
+          Properties:
+            Path: /UpdateThirdPartyUser/{id}
+            Method: PUT
+  GetActivityLogsByActivityId:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activityLogService.getActivityLogsByActivityId
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetActivityLogsByActivityId:
+          Type: Api
+          Properties:
+            Path: /GetActivityLogsByActivityId/{actId}
+            Method: GET
+  GetAllContainers:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: containerService.listAllContainers
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllContainers:
+          Type: Api
+          Properties:
+            Path: /GetAllContainers
+            Method: GET
+  GetAllShippingLines:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: shippingLineService.listAllShippingLines
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllShippingLines:
+          Type: Api
+          Properties:
+            Path: /GetAllShippingLines
+            Method: GET
+  GetAllThirdParties:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: thirdPartyService.listAllThirdParties
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllThirdParties:
+          Type: Api
+          Properties:
+            Path: /GetAllThirdParties
+            Method: GET
+  GetEmployeeByUserName:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: employeeService.getEmployeeByUserName
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetEmployeeByUserName:
+          Type: Api
+          Properties:
+            Path: /GetEmployeeByUserName/{userName}
+            Method: GET
+  GetAllDepartments:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: employeeService.getAllDepartments
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllDepartments:
+          Type: Api
+          Properties:
+            Path: /GetAllDepartments
+            Method: GET
+  GetAllWareHouses:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: wareHouseItemsService.getAllWareHouses
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        GetAllWareHouses:
+          Type: Api
+          Properties:
+            Path: /GetAllWareHouses
+            Method: GET
+  DemurrageCalculation:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: demurrageCalculationService.demurrageCalculation
+      Runtime: nodejs12.x
+      CodeUri: ./
+      Events:
+        DemurrageCalculation:
+          Type: Api
+          Properties:
+            Path: /DemurrageCalculation
+            Method: POST
+            

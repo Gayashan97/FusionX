@@ -1,0 +1,38 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        python: 3.7
+    commands:
+      # - mkdir install_dir
+      - mkdir lib
+      - apt update && apt install -y python3-pymysql
+      - pip install --upgrade -t './lib' -r requirements.txt
+      # - cd install_dir
+      # - mv sqlalchemy* ../lib
+      # - mv xgboost* ../lib
+      # - mv pandas* ../lib
+      # - cd ..
+      # - rm -r install_dir
+      # - pip3 install --user --upgrade tensorflow
+      # - pip3 install -U scikit-learn
+      # - pip3 install pandas
+      # - pip3 install keras
+      # - pip3 install mysql-connector-python
+  build:
+    commands:
+      # - mkdir lib
+      # - pip3 install --user --upgrade tensorflow -t lib
+      # - pip3 install -U scikit-learn -t lib
+      # - pip3 install pandas -t lib
+      # - pip3 install keras -t lib
+      # - pip3 install djangorestframework
+      # - pip3 install django
+      # - pip3 install mysql-connector-python -t lib
+      - export BUCKET=lambda-ml-model-deployment-bucket
+      - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
+artifacts:
+  type: zip
+  files:
+    - template.yaml
+    - outputtemplate.yaml

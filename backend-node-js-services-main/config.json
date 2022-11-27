@@ -1,0 +1,6 @@
+{
+    "host": "fusionx-database.cm2ioaxu6xnv.ap-southeast-1.rds.amazonaws.com",
+    "user": "root",
+    "password": "admin123",
+    "database": "fusionx"
+}

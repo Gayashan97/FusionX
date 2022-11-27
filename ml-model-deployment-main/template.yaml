@@ -1,0 +1,29 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Outputs the ML model predictions
+Resources:
+  ActivityTimePrediction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: activities.make_predictions
+      Runtime: python3.7
+      CodeUri: ./
+      MemorySize: 256
+      Events:
+        ActivityTimePrediction:
+          Type: Api
+          Properties:
+            Path: /activities
+            Method: POST
+  MonthlyDemurragePrediction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: month_demurrage.get_predictions
+      Runtime: python3.7
+      CodeUri: ./
+      Events:
+        MonthlyDemurragePrediction:
+          Type: Api
+          Properties:
+            Path: /monthly
+            Method: POST

@@ -1,0 +1,19 @@
+version: 0.2
+phases:
+  install:
+    runtime-versions:
+        nodejs: 12
+  build:
+    commands:
+      - npm install mysql
+      - npm install nodemailer-smtp-transport nodemailer
+      - npm install dateformat
+      - npm i moment
+      - npm i moment-business-days
+      - export BUCKET=back-end-nodejs-services-bucket
+      - aws cloudformation package --template-file template.yaml --s3-bucket $BUCKET --output-template-file outputtemplate.yaml
+artifacts:
+  type: zip
+  files:
+    - template.yaml
+    - outputtemplate.yaml

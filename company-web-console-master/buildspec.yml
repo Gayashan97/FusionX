@@ -1,0 +1,18 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - apt update
+      - apt install -y nodejs
+      - apt install -y npm
+  pre_build:
+    commands:
+      - npm install
+  build:
+    commands:
+      - npm run build
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
+  base-directory: build

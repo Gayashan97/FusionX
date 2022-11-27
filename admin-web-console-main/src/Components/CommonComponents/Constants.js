@@ -1,0 +1,1 @@
+export const baseURL = 'https://ky107h7r00.execute-api.ap-southeast-1.amazonaws.com/Prod';
